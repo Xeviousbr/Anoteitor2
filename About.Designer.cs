@@ -31,6 +31,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.controlSimplyGoodCodeLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(274, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(305, 13);
+            this.label2.Size = new System.Drawing.Size(317, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Bloco de nota para Atividades baseado no Anoteitor te Luis Perez";
             // 
@@ -103,6 +104,17 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Versão: 1.0.0";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(275, 186);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(200, 13);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "https://github.com/Xeviousbr/Anoteitor2";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // About
             // 
             this.AcceptButton = this.buttonOk;
@@ -110,6 +122,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonOk;
             this.ClientSize = new System.Drawing.Size(653, 242);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.controlSimplyGoodCodeLinkLabel);
             this.Controls.Add(this.label3);
@@ -141,5 +154,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel controlSimplyGoodCodeLinkLabel;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
