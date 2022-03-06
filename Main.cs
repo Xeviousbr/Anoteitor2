@@ -70,7 +70,7 @@ namespace Anoteitor
 #if DEBUG
             this.TitAplicativo += " Em Debug";
             cIni = new INI(@"H:\Anoteitor\Anoteitor.ini");
-#else
+#else            
             cIni = new INI();
 #endif
             this.Logar = cIni.ReadBool("Config", "Log", false);
@@ -103,7 +103,16 @@ namespace Anoteitor
             CurrentFont = Settings.CurrentFont;
             UpdateStatusBar();
             controlContentTextBox.BringToFront(); // in order to docking to respond correctly to the status bar being turned off and on
-            this.PastaGeral = cIni.ReadString("Projetos", "Pasta", "");
+            string Pasta = cIni.ReadString("Projetos", "Pasta", "");
+            if (Pasta.Length>0)
+                this.PastaGeral = Pasta;
+            else
+            {
+                string path = Directory.GetCurrentDirectory();
+                cIni.WriteString("Projetos", "Pasta", path);
+                this.PastaGeral = path;
+
+            }
             this.Atual = cIni.ReadString("Projetos", "Atual", "");
             this.PreencheCombo(this.Atual);
             if (this.Atual.Length > 0)

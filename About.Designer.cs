@@ -50,9 +50,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(274, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(317, 13);
+            this.label2.Size = new System.Drawing.Size(320, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Bloco de nota para Atividades baseado no Anoteitor te Luis Perez";
+            this.label2.Text = "Bloco de nota para Atividades baseado no Anoteitor de Luis Perez";
             // 
             // buttonOk
             // 
@@ -87,7 +87,7 @@
             // controlSimplyGoodCodeLinkLabel
             // 
             this.controlSimplyGoodCodeLinkLabel.AutoSize = true;
-            this.controlSimplyGoodCodeLinkLabel.Location = new System.Drawing.Point(274, 212);
+            this.controlSimplyGoodCodeLinkLabel.Location = new System.Drawing.Point(275, 161);
             this.controlSimplyGoodCodeLinkLabel.Name = "controlSimplyGoodCodeLinkLabel";
             this.controlSimplyGoodCodeLinkLabel.Size = new System.Drawing.Size(284, 13);
             this.controlSimplyGoodCodeLinkLabel.TabIndex = 5;
