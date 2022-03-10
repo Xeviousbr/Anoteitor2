@@ -120,7 +120,7 @@ namespace Anoteitor
                 this.CarregaArquivoDoProjeto(false);
                 this.MostraArquivosDoProjeto();
             }
-            this.SalvarAutom = cIni.ReadBool("Projetos", "SalvarAut", false);
+            this.SalvarAutom = cIni.ReadBool("Projetos", "SalvarAut", true);
             this.cbProjetos.Text = this.Atual;
             this.Segundos = cIni.ReadInt("Projetos", "Segundos", 2);
             this.DataSalva = DateTime.Now.Day;
@@ -675,23 +675,10 @@ namespace Anoteitor
             Console.WriteLine("controlContentTextBox_TextChanged");
             IsDirty = true;
             if (this.Carregado)
-            {
-                Console.WriteLine("Carregado = true");
                 if (this.SalvarAutom)
-                {
-                    Console.WriteLine("SalvarAutom = true");
                     if (controlContentTextBox.Text.Length > 0)
-                    {
-                        Console.WriteLine("Text.Length > 0");
                         if (timer1.Enabled == false)
-                        {
-                            Console.WriteLine("timer1.Enabled = true");
                             timer1.Enabled = true;
-                        }                            
-                    }
-                }
-            }
-
         }
 
         public bool WordWrap
@@ -1143,7 +1130,7 @@ namespace Anoteitor
             FormConfigProjeto.ShowDialog();
             if (FormConfigProjeto.DialogResult == DialogResult.OK)
             {
-                this.SalvarAutom = cIni.ReadBool("Projetos", "SalvarAut", false);
+                this.SalvarAutom = cIni.ReadBool("Projetos", "SalvarAut", true);
                 this.timer1.Interval = this.Segundos * 1000;
                 this.PastaGeral = FormConfigProjeto.PastaGeral;
                 this.Logar = cIni.ReadBool("Config", "Log", false);

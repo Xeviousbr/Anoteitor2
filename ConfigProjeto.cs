@@ -25,7 +25,7 @@ namespace Anoteitor
 #endif
             this.PastaGeral = cIni.ReadString("Projetos", "Pasta", "");
             textBox1.Text = this.PastaGeral;
-            ckSalvar.Checked = cIni.ReadBool("Projetos", "SalvarAut", false);
+            ckSalvar.Checked = cIni.ReadBool("Projetos", "SalvarAut", true);
             txSegundos.Enabled = ckSalvar.Checked;
             ckUmDiaOutro.Checked = cIni.ReadBool("Projetos", "CopiaOutroDia", false);
             txSegundos.Text = cIni.ReadInt("Projetos", "Segundos", 2).ToString();
