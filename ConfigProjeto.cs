@@ -6,8 +6,9 @@ namespace Anoteitor
     public partial class ConfigProjeto : Form
     {
         private INI cIni;
-        private bool CopiaOutroDia = false;
+        private bool CopiaOutroDia = true;
         private bool SalvarAuto = true;
+        private bool Carregando = false;
         public string PastaGeral = "";
 
         public ConfigProjeto()
@@ -17,7 +18,8 @@ namespace Anoteitor
 
         private void ConfigProjeto_Load(object sender, EventArgs e)
         {
-#if DEBUG            
+            this.Carregando = true;
+#if DEBUG
             this.Text += " Em Debug";
             cIni = new INI(@"H:\Anoteitor\Anoteitor.ini");
 #else
@@ -27,11 +29,12 @@ namespace Anoteitor
             textBox1.Text = this.PastaGeral;
             ckSalvar.Checked = cIni.ReadBool("Projetos", "SalvarAut", true);
             txSegundos.Enabled = ckSalvar.Checked;
-            ckUmDiaOutro.Checked = cIni.ReadBool("Projetos", "CopiaOutroDia", false);
+            ckUmDiaOutro.Checked = cIni.ReadBool("Projetos", "CopiaOutroDia", true);
             txSegundos.Text = cIni.ReadInt("Projetos", "Segundos", 2).ToString();
             ckMedeTempos.Checked = cIni.ReadBool("Projetos", "MedeTempos", false);
             txLimCombo.Text = cIni.ReadInt("Projetos", "LimArqs", 31).ToString();
             ckLog.Checked = cIni.ReadBool("Config", "Log", false);
+            this.Carregando = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -67,10 +70,11 @@ namespace Anoteitor
 
         private void ckUmDiaOutro_CheckedChanged(object sender, EventArgs e)
         {
-            if (ckUmDiaOutro.Checked)
-                this.CopiaOutroDia = true;
-            else
-                this.CopiaOutroDia = false;            
+            if (this.Carregando == false)
+                if (ckUmDiaOutro.Checked)
+                    this.CopiaOutroDia = true;
+                else
+                    this.CopiaOutroDia = false;
         }
 
         private void ckSalvar_CheckedChanged(object sender, EventArgs e)

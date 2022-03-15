@@ -1270,7 +1270,7 @@ namespace Anoteitor
             this.Open(this.Filename);
             this.Text = this.NomeArq + " - " + this.TitAplicativo;
             if (controlContentTextBox.Text.Length == 0)
-                if (cIni.ReadBool("Projetos", "CopiaOutroDia", false))
+                if (cIni.ReadBool("Projetos", "CopiaOutroDia", true))
                     this.HojeVazio = true;
             this.Carregado = MarcarCarregado;            
         }
@@ -1635,7 +1635,7 @@ namespace Anoteitor
                         renomearToolStripMenuItem.Enabled = true;
                     }
                     string PastaSub = this.PastaGeral + @"\" + this.Atual + PastaSubAtual;
-                    if (cIni.ReadBool("Projetos", "CopiaOutroDia", false))
+                    if (cIni.ReadBool("Projetos", "CopiaOutroDia", true))
                         this.HojeVazio = true;
                     this.PreparaComboArquivo(PastaSub);
                 }
